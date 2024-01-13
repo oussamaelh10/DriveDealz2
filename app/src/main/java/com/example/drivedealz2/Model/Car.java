@@ -13,6 +13,8 @@ public class Car {
 
     private double price;
 
+    public Car() {
+    }
 
     public Car(int id, String brand, String model, int year, double price) {
         Id = id;

@@ -2,22 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background=""
     android:orientation="vertical"
     android:padding="36dp">
 
+    <TextView
+        android:id="@+id/DetailsTitle"
+        android:layout_width="87dp"
+        android:layout_height="36dp"
+        android:text="Car Details" />
+
     <ImageView
         android:id="@+id/carImage"
-        android:layout_width="wrap_content"
+        android:layout_width="226dp"
         android:layout_height="200dp"
+        android:layout_marginTop="56dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/audiRs4" />
+        android:src="@drawable/audirs4" />
 
     <TextView
         android:id="@+id/brandModelText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+
         android:text="Brand Model"
         android:textColor="@color/black"
         android:textSize="18sp" />
