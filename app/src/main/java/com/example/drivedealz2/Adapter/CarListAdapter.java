@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +30,8 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarItemV
         public ImageView carImageView;
         public TextView brandTextView;
 
+
+
         public CarItemViewHolder(View itemView) {
             super(itemView);
             carImageView = itemView.findViewById(R.id.imageView);
@@ -49,6 +52,26 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarItemV
 
 
     }
+
+
+    // Inner class voor de ViewHolder
+    public class CarViewHolder extends RecyclerView.ViewHolder {
+        public Button buttonDetails;
+
+        public CarViewHolder(View itemView) {
+            super(itemView);
+            buttonDetails = itemView.findViewById(R.id.ButtonDetails);
+
+            // Hier kun je de click listener instellen of de knop verder configureren
+            buttonDetails.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Doe iets wanneer op de knop wordt geklikt
+                }
+            });
+        }
+    }
+
     @NonNull
     @Override
     public CarItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

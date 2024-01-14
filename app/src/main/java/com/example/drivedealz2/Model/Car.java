@@ -1,6 +1,7 @@
 package com.example.drivedealz2.Model;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -9,15 +10,15 @@ public class Car {
     private int Id;
     private String brand;
     private String model;
-    private int year;
+    private String year;
 
-    private double price;
+    private String price;
 
     public Car() {
     }
+    @Ignore
+    public Car(String brand, String model, String year, String price) {
 
-    public Car(int id, String brand, String model, int year, double price) {
-        Id = id;
         this.brand = brand;
         this.model = model;
         this.year = year;
@@ -48,19 +49,19 @@ public class Car {
         this.model = model;
     }
 
-    public int getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

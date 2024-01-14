@@ -1,0 +1,100 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.drivedealz2.Fragment.New_Car_Fragment">
+
+
+
+    <!-- new_car_fragment.xml -->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Brand -->
+        <TextView
+            android:id="@+id/textViewBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Brand"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editTextBrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewBrand"
+            android:layout_marginTop="16dp"
+            android:inputType="text"
+            android:hint="Enter car brand"/>
+
+
+
+        <!-- Model -->
+        <TextView
+            android:id="@+id/textViewModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model"
+            android:layout_below="@id/editTextBrand"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editTextModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewModel"
+            android:layout_marginTop="8dp"
+            android:hint="Enter Model"/>
+
+        <!-- Prijs -->
+        <TextView
+            android:id="@+id/textViewPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:layout_below="@id/editTextModel"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editTextPrice"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/textViewPrice"
+            android:layout_marginTop="8dp"
+            android:hint="Enter Price"
+            android:inputType="numberDecimal"/>
+
+
+
+        <!-- Jaar -->
+        <TextView
+            android:id="@+id/textViewYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year"
+            android:layout_below="@id/editTextPrice"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editTextYear"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/textViewYear"
+            android:layout_marginTop="8dp"
+            android:hint="Enter Year"
+            android:inputType="number"/>
+
+
+        <!-- Add Car Button -->
+        <Button
+            android:id="@+id/buttonAddCar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextYear"
+            android:layout_marginTop="16dp"
+            android:text="Add Car"/>
+    </RelativeLayout>
+
+
+</FrameLayout>
