@@ -11,7 +11,7 @@ import com.example.drivedealz2.DAO.CarDao;
 import com.example.drivedealz2.DAO.OrderDao;
 import com.example.drivedealz2.DAO.UserDao;
 
-@Database(entities = {Car.class,Order.class, User.class}, version = 1)
+@Database(entities = {Car.class, Order.class, User.class}, version = 2, exportSchema = false)
 public abstract class DriveDealzDatabase extends RoomDatabase {
 
     private static DriveDealzDatabase instance;

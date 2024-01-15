@@ -16,14 +16,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.drivedealz2.Adapter.CarListAdapter;
+import com.example.drivedealz2.Model.Car;
 import com.example.drivedealz2.View.CarViewModel;
 import com.exemple.DriveDealz.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CarListFragment extends Fragment {
 
     private CarListAdapter carListAdapter;
+
+    private List<Car> carList;
 
     private FloatingActionButton fab;
 
@@ -44,33 +50,34 @@ public class CarListFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        carList = new ArrayList<>();
         // Hier kun je de views gebruiken zoals nodig
         RecyclerView recyclerView = view.findViewById(R.id.RecyclerViewCarList);
-        carListAdapter = new CarListAdapter();
+        carListAdapter = new CarListAdapter(requireContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);  // Hier wordt de layoutManager ingesteld
         recyclerView.setAdapter(carListAdapter);
         fab = view.findViewById(R.id.floatingActionButton);
-        fab.setOnClickListener( (new View.OnClickListener() {
+
+        CarViewModel carViewModel = new ViewModelProvider(this).get(CarViewModel.class);
+
+        carViewModel.getAllCars().observe(getViewLifecycleOwner(), cars -> {
+            carList.clear();
+            carListAdapter.setCarList(cars);
+            carList.addAll(cars);
+            carListAdapter.notifyDataSetChanged();
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               replaceFragment(new New_Car_Fragment());
+                Navigation.findNavController(v).navigate(R.id.action_fragment_car_list_to_new_car_fragment);
             }
-        }));
-        CarViewModel carViewModel = new ViewModelProvider(getActivity()).get(CarViewModel.class);
-        carViewModel.getAllCars().observe(getViewLifecycleOwner(), cars -> {
-            carListAdapter.AddItems(cars);
-            carListAdapter.notifyDataSetChanged();
         });
 
     }
 
-    private void replaceFragment(Fragment fragment){
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frameLayout,fragment);
-        fragmentTransaction.commit();
-    }
 
 
 

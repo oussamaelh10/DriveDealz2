@@ -3,40 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="223dp"
         android:layout_height="180dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ButtonDetails"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextViewBrand"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/audirs6" />
 
     <TextView
         android:id="@+id/TextViewBrand"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="134dp"
+        android:layout_marginEnd="177dp"
         android:layout_marginBottom="5dp"
         android:text="Brand"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.687"
         app:layout_constraintWidth_percent="0.5" />
-
 
     <TextView
         android:id="@+id/textViewModelLabel"
         android:layout_width="49dp"
         android:layout_height="22dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="186dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
         android:text="Model:"
+        app:layout_constraintBottom_toTopOf="@+id/textView4PriceLabel"
+        app:layout_constraintEnd_toStartOf="@+id/textViewModel"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,44 +54,71 @@
         android:id="@+id/textView4PriceLabel"
         android:layout_width="49dp"
         android:layout_height="22dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
         android:text="Price:"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textViewModelLabel" />
+    app:layout_constraintTop_toBottomOf="@+id/textViewModelLabel" />
+
+    <TextView
+        android:id="@+id/textViewYearLabel"
+        android:layout_width="49dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="11dp"
+        android:text="Year:"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonDetails"
+        app:layout_constraintEnd_toStartOf="@+id/textViewYear"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView4PriceLabel" />
 
     <TextView
         android:id="@+id/textViewModel"
         android:layout_width="49dp"
         android:layout_height="22dp"
-        android:layout_marginTop="186dp"
-        android:layout_marginEnd="60dp"
-        android:text="Model"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="226dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPrice"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textViewModelLabel"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Model" />
 
     <TextView
         android:id="@+id/textViewPrice"
         android:layout_width="49dp"
         android:layout_height="22dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="31dp"
-        android:text="Price"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4PriceLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewModel" /> <!-- Toegevoegde constraint -->
+
+    <TextView
+        android:id="@+id/textViewYear"
+        android:layout_width="49dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="27dp"
         app:layout_constraintBottom_toTopOf="@+id/ButtonDetails"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewYearLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrice"
+        tools:text="Year" />
 
     <Button
         android:id="@+id/ButtonDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="410dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="20dp"
         android:text="Details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView4PriceLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewYearLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

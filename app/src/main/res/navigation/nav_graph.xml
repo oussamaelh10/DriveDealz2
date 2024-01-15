@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_home">
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.example.drivedealz2.Fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_car_list"
+            app:destination="@id/fragment_car_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_car_list"
+        android:name="com.example.drivedealz2.Fragment.CarListFragment"
+        android:label="fragment_car_list"
+        tools:layout="@layout/fragment_car_list" >
+
+        <action
+            android:id="@+id/action_fragment_car_list_to_new_car_fragment"
+            app:destination="@id/fragment_new_car" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_new_car"
+        android:name="com.example.drivedealz2.Fragment.New_Car_Fragment"
+        android:label="fragment_new_car"
+        tools:layout="@layout/fragment_new__car_" >
+        <action
+            android:id="@+id/action_fragment_new_car_to_fragment_car_list"
+            app:destination="@id/fragment_car_list" />
+
+    </fragment>
+
+</navigation>

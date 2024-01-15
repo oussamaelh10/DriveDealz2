@@ -6,8 +6,9 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Car {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int Id;
+
     private String brand;
     private String model;
     private String year;
