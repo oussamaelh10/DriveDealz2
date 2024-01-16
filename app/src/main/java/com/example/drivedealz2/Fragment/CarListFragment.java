@@ -54,7 +54,7 @@ public class CarListFragment extends Fragment {
         carList = new ArrayList<>();
         // Hier kun je de views gebruiken zoals nodig
         RecyclerView recyclerView = view.findViewById(R.id.RecyclerViewCarList);
-        carListAdapter = new CarListAdapter(requireContext());
+        carListAdapter = new CarListAdapter(getContext());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);  // Hier wordt de layoutManager ingesteld
         recyclerView.setAdapter(carListAdapter);

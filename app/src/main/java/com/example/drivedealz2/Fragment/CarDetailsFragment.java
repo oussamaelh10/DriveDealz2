@@ -1,5 +1,6 @@
 package com.example.drivedealz2.Fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import com.exemple.DriveDealz.R;
 
 
 public class CarDetailsFragment extends Fragment {
+
 
 
     public CarDetailsFragment() {

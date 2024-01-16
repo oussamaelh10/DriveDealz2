@@ -1,6 +1,7 @@
 package com.example.drivedealz2.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.drivedealz2.Activity.CarDetailsActivity;
 import com.example.drivedealz2.Fragment.CarDetailsFragment;
 import com.example.drivedealz2.Model.Car;
 import com.exemple.DriveDealz.R;
@@ -50,39 +52,18 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarItemV
         holder.buttonDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hier voeg je de code toe om naar CarDetailsFragment te navigeren
-                openCarDetailsFragment(currentCar);
-                // Handle button click, you can navigate to details fragment or perform other actions
+          Intent intent = new Intent(context, CarDetailsActivity.class);
+            intent.putExtra("brand", currentCar.getBrand());
+            intent.putExtra("model", currentCar.getModel());
+            intent.putExtra("year", currentCar.getYear());
+            intent.putExtra("price", currentCar.getPrice());
+            context.startActivity(intent);
             }
 
 
-            // Voeg deze methode toe aan je adapter om naar CarDetailsFragment te navigeren
-            private void openCarDetailsFragment(Car car) {
-                // Creëer een nieuw CarDetailsFragment
-                CarDetailsFragment carDetailsFragment = new CarDetailsFragment();
-
-                // Stel het bundelobject in om gegevens naar CarDetailsFragment te verzenden
-                Bundle bundle = new Bundle();
-                bundle.putString("brand", car.getBrand());
-                bundle.putString("model", car.getModel());
-                bundle.putString("year", car.getYear());
-                bundle.putString("price", car.getPrice());
-                carDetailsFragment.setArguments(bundle);
-
-                // Navigeer naar CarDetailsFragment
-                FragmentTransaction transaction = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, carDetailsFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
-
-
-                // Verberg de lijstcontainer
-                View carListContainer = ((FragmentActivity) context).findViewById(R.id.fragment_container);
-                carListContainer.setVisibility(View.GONE);
-
-            }
         });
-        }
+    }
+
 
     @Override
     public int getItemCount() {
@@ -98,7 +79,7 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarItemV
     // ViewHolder class
     public static class CarItemViewHolder extends RecyclerView.ViewHolder {
         private ImageView carImageView;
-        private TextView textViewBrand;
+         TextView textViewBrand;
         private TextView textViewModel;
         private TextView textViewYear;
         private TextView textViewPrice;
@@ -115,3 +96,5 @@ public class CarListAdapter extends RecyclerView.Adapter<CarListAdapter.CarItemV
         }
     }
 }
+
+
